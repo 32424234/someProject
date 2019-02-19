@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点赞</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		html, body {
+			position: relative;
+			height: 100%;
+			background: #000;
+		}
+		.praise {
+			width: 100%;
+			height: 100%;
+			background: url("../images/exhi_bg.jpg") 0 0 no-repeat;
+			background-size: 100% 85%;
+		}
+		.tit {
+			width: 100%;
+			height: 3rem;
+		}
+		.back {
+			float: left;
+			width: 20%;
+			height: 3rem;
+			margin-left: 1rem;
+			background:url("../images/return.png") 0 1rem no-repeat;
+			background-size: 100% 55%;
+		}
+		.rule {
+			float: right;
+			width: 30%;
+			height: 3rem;
+			margin-right: 1rem;
+			background:url("../images/rule.png") 0 1rem no-repeat;
+			background-size: 100% 70%;
+		}
+		.top {
+			width: 100%;
+			height: 2.5rem;
+			margin: 2rem 0rem 0 0rem;
+			background: url("../images/indexbg.png") 0rem 0 no-repeat;
+			background-size: 100% 100%;
+			opacity: 0.8;
+		}
+		.search {
+			float: right;
+			width: 40%;
+			height: 2rem;
+			margin: 0.25rem 1.2rem 0 0;
+			background: #fff;
+			border: 0.1rem solid gold;
+		}
+		.search input {
+			width: 80%;
+			height: 2rem;
+			border: none;
+			outline: none;	
+		}
+		.search a {
+			float: right;
+			width: 20%;
+			height: 1.8rem;
+			background: url("../images/index.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		.con {
+			width: 104%;
+			height: 22.5rem;
+		}
+		.con li {
+			float: left;
+			width: 30.5%;
+			height: 11rem;
+			margin: 0 0.5rem 0.5rem 0;
+			background: #fff;
+		}
+
+		.con li img {
+			width: 100%;
+			height: 74%;
+		}
+		.con li p {
+			overflow: hidden;
+			width: 100%;
+			height: 2.3rem;
+			font-size: 0.8rem;
+		}
+		.con-out {
+			overflow: hidden;
+			width: 90%;
+			height: 22.5rem;
+			margin: 0.5rem auto;
+		}
+		.page {
+			width: 70%;
+			height: 1.7rem;
+			margin: 0.8rem auto;
+		}
+		.page li {
+			float: left;
+			min-width: 5%;
+			height: 1.5rem;
+			line-height: 1.5rem;
+			margin: 0 0.5rem 0 0 ;
+			text-align: center;
+			color: #fff;
+		}
+		.page .first {
+			width: 12%;
+			background: url("../images/page1.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		.page .before {
+			width: 10%;
+			background: url("../images/page2.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		.page .last {
+			width: 12%;
+			background: url("../images/page3.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		.page .next {
+			width: 10%;
+			background: url("../images/page4.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+		.con-rule {
+			display: none;
+			width: 100%;
+			height: 100%;
+			background: url("../images/rulebg.jpg") 0 0 no-repeat;
+			background-size: 100% 85%;
+		}
+		.con-rule p {
+			overflow: scroll;
+			width: 85%;
+			height: 41%;
+			margin: 9rem auto;
+			border: 0.1rem solid #666;
+			font-size: 0.9rem;
+			letter-spacing: 0.15rem;
+		}
+		.data-bac {
+			display: none;
+			position: absolute;
+			top: 0rem;
+			left: 0rem;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			opacity: 0.5;
+		}
+		.data-con {
+			display: none;
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			width: 90%;
+			min-height: 20rem;
+			background: #fff;
+		}
+		.data-con img {
+			width: 94%;
+			height: 25rem;
+			margin: 0.55rem 0 0.55rem 0.55rem;
+		}
+		.data-con p {
+			width: 90%;
+			margin: 0 auto;
+			text-indent: 2rem; 
+		}
+		.comment {
+			width: 100%;
+			height: 2rem;
+			background: #ccc;
+			line-height: 2rem;
+			text-indent: 1rem;
+		}
+		.share, .like{
+			float: right;
+			width: 20%;
+			height: 2rem;
+			margin-right: 0.5rem;
+			text-indent: 2rem;
+		}
+		.share {
+			background: url("../images/share.png") 0 0 no-repeat;
+			background-size: 50% 100%;
+		}
+		.like {
+			background: url("../images/praise.png") 0 0 no-repeat;
+			background-size: 50% 100%;
+		}
+		.wxshare {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(100,100,160,0.5);
+		}
+		.wxshare img {
+			float: left;
+			margin: 9rem auto;
+			width: 100%;
+			height: 50%;
+		}
+		.wxshare-back {
+			position: absolute;
+			top: 11.2rem;
+			left: 19rem;
+			width: 10%;
+			height: 2rem;
+		}
+		.close {
+			position: absolute;
+			top: -0.5rem;
+			left: 19rem;
+			width: 10%;
+			height: 2rem;
+			background: url("../images/close.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="praise">
+		<div class="tit">
+			<a href= "../index.html" class="back" id="tit-back"></a>
+			<span class="rule"></span>
+		</div>
+		<div class="pic">
+			<div class="top">
+				<div class="search">
+					<input type="text" value="" placeholder="请输入手机号码">
+					<a href="">
+						<img src="" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="con-out">
+				<ul class="con clearfix">
+					<li>
+						<img src="../images/50.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</p>
+					</li>
+					<li>
+						<img src="../images/51.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分四个月，每个月我再拿一千，另外拿出一毛给为我点赞的人，谢谢你们，阿里嘎都</p>
+					</li>
+					<li>
+						<img src="../images/52.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</p>
+					</li>
+					<li>
+						<img src="../images/53.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</p>
+					</li>
+					<li>
+						<img src="../images/54.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</p>
+					</li>
+					<li>
+						<img src="../images/55.jpg" alt="图片">
+						<p>5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</p>
+					</li>
+				</ul>
+			</div>
+			<ul class="page">
+				<li class="first"></li>
+				<li class="before"></li>
+				<li class="page-num">1</li>
+				<li class="page-num">2</li>
+				<li class="page-num">3</li>
+				<li class="page-num">4</li>
+				<li class="next"></li>
+				<li class="last"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="con-rule">
+		<div class="tit">
+			<span class="back" id = "rule-back"></span>
+		</div>
+		<p>
+			1、每位玩家上传自己的亲子照后在文本框撰写属于自己的个性基金分成计划与属于这张亲子照的欢乐回忆，为集赞拉票。</br>
+			</br>
+			如：5000元中我要留1000，另外4000元分将分给为我点赞的小伙伴们！每个点赞的小伙伴可获得5元现金，直到4000元分光为止。希望宝宝带能带着各位小伙伴的祝福快乐成长，请为我们家豆豆加油点赞吧！</br>
+			2、为了达到游戏中“点赞给现金”的真实性，我们要求在制定分成计划时金额必须大于1，否则视为无效。</br>
+			3、每个ID每天只能给同一个人投一票，每天最多投10票，比如：你喜欢小巴的作品，你可以每天都来给他点一次赞，但每天只限一次，同时你也可以为别人点赞。</br>
+			4、最后获得票数最高者可获得5000元基金，其中承诺支付的点赞赏金将会按获奖者制定的分成计划由巴布豆中赛专卖店给到点赞的玩家。</br>
+			（如获奖者承诺每人10元点赞赏金，最后获有100个赞，那么减去分出去的赏金，自己可得到4000元）。</br>
+			（承诺每人20元点赞赏金，最后获有300个赞，那么只有前200个点赞者可获得赏金）。</br>
+			</br>
+			温馨提示：</br>
+			1：照片必须是亲子照，否则视为无效。</br>
+			2：游戏截止日期为2014年6月5日。</br>
+			3：获奖名单将于活动结束后5-10个工作日内在 “巴布豆-橡树镇”微信公众平台（微信号：Bob-dog）以推送消息形式进行公布，获奖玩家请发送“【我要领奖】+姓名+联系电话+联系地址”，发送到“巴布豆-橡树镇”微信公众平台（微信号： Bob-dog），奖金由专属客服根据获奖者发起的基金计划发放给参与投票的小伙伴。</br>
+			4：在活动结束当天，会在所有参与者中随机抽取幸运奖88名，送“爸爸去哪儿“亲子装代金券一张，价值88元。</br>
+			5：凡是发现票数中空号数大于10%者取消获奖资格。</br>
+			6：巴布豆中赛专卖店拥有本次活动最终解释权。</br>
+		</p>
+	</div>
+	<div class="data-bac"></div>
+	<div class="data-con"></div>
+	<div class="wxshare">
+		<div class="wxshare-back"></div>
+		<img src="../images/alert3.png" alt="">
+	</div>
+	<script src = "../js/zepto.min.js"></script>
+	<script src = "../js/touch.js"></script>
+	<script src = "../js/event.js"></script>
+	<script src = "../js/selector.js"></script>
+	<script src="../js/babudou.js">
+	</script>
+</body>
+</html>

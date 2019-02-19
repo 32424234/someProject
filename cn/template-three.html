@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>模版三</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/template.css">
+    <script type="text/javascript" src="../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>   
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.form.js"></script>
+</head>
+<body>
+<div class="board wrap-three">
+    <a href="template.html" class="return"></a>
+    <form class="user-info" action="" method="post">
+        <div class="content">
+            <div class="template-three template">
+                <div class="text-case">
+                    <textarea maxlength="50" placeholder="书写描述，最多50个字符..."></textarea>
+                </div>
+            </div>
+            <div class="upload-one" id="picture-face-one">
+            </div>
+            <div class="upload-two" id="picture-face-two">
+            </div>
+            <label for="face-one">上传照片</label>
+            <label for="face-two">上传照片</label>
+        </div>
+        <div>
+            <span class="next-one"></span>
+            <span class="next-two"></span>
+        </div>
+    </form>
+    <form action="../ajax/file_upload.php" class="file-upload"  enctype="multipart/form-data">
+        <div>
+            <input type="file" id="face-one" name="face">
+        </div>
+    </form>
+</div>
+    <script type="text/javascript" src="../js/upload.js"></script>
+</body>
+</html>
